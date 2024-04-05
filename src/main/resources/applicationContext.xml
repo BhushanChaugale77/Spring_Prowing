@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+
+	<bean class="com.prowing.myapp.Employee" id="emp">
+		<property name="id" value="10" />
+		<property name="name" value="Ram" />
+		<property name="address" value="Pune" />
+
+		<!-- <constructor-arg index="0" type="int" value="55" />
+		<constructor-arg index="1" type="String" value="Ram" />
+		<constructor-arg index="2" type="String" value="Pune" /> -->
+	</bean>
+
+	<bean class="com.prowing.myapp.Address" id="addr1">
+		<property name="pin" value="123" />
+		<property name="city" value="mumbai" />
+		<property name="country" value="Bharat" />
+	</bean>
+
+	<bean class="com.prowing.myapp.Address" id="addr2">
+		<property name="pin" value="416" />
+		<property name="city" value="Pune" />
+		<property name="country" value="India" />
+	</bean>
+
+	<bean class="com.prowing.myapp.Student" id="std">
+		<property name="id" value="77" />
+		<property name="name" value="Bhushan" />
+		<property name="addresses">
+			<list>
+
+				<ref bean="addr1" />
+				<ref bean="addr2" />
+
+			</list>
+		</property>
+	</bean>
+
+	<bean class="com.prowing.myapp.Car" id="car">
+		<property name="id" value="99" />
+		<property name="company" value="TATA" />
+		<property name="features">
+			<list>
+				<value>GPS</value>
+				<value>Sensors</value>
+				<value>Seats</value>
+			</list>
+		</property>
+
+		<property name="components">
+			<set>
+				<value>aaa</value>
+				<value>BBB</value>
+				<value>bbb</value>
+				<value>aaa</value>
+			</set>
+		</property>
+
+		<property name="parts">
+			<map>
+				<entry key="77" value="NN" />
+				<entry key="11" value="AA" />
+				<entry key="33" value="KK" />
+				
+				<entry key="11" value="AA" />
+				<entry key="11" value="BB" />
+			</map>
+		</property>
+		<property name="carProps">
+			<props>
+				<prop key="a1">aa</prop>
+				<prop key="b1">bb</prop>
+				<prop key="c1">cc</prop>
+				<prop key="a1">aa</prop>
+				<prop key="a1">dd</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
